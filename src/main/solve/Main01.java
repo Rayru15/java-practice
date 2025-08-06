@@ -25,6 +25,7 @@ public class Main01 {
             peopleList.add(people);
 
         }
+        System.out.println("-------------------------------");
 
         for(String people:peopleList){
             String[] peopleSplit = people.split("/");
@@ -35,8 +36,8 @@ public class Main01 {
 
 
 
-            if(pdate>20240701){
-                System.out.println("-------------------------------");
+            if(pdate>=20240701){
+
                 if (pnum % 2 == 0){
                     System.out.println(pname+" / "+pnum+" / "+"even");
                     even++;
@@ -50,7 +51,7 @@ public class Main01 {
 
 
         }
-
+        System.out.println();
         System.out.println("odd : "+odd);
         System.out.println("even : "+even);
         int sum=odd+even;
