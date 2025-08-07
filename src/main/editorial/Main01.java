@@ -7,6 +7,7 @@ import java.util.List;
  * <a href="https://nsm-cloud-git.nsmall.com/jjhoo8936/java-ds-algo-practice/src/branch/main/problem/01.problem.md">문제01</a>풀이
  * <pre>
  * 문제01의 에디토리얼 코드
+ * 해당 코드가 정답은 절대 아닙니다!! 코드 가독성, 재사용성을 어떻게 향상시키는지에 대한 참고자료로만 활용
  * </pre>
  *
  * @author jjhoo8936
