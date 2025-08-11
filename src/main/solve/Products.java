@@ -83,15 +83,17 @@ public class Products {
     // 상품 등록자별로 상품명을 ','로 결합하여 반환
     public Map<String, String> joinNamesByCreator() {
         // 등록자 이름을 key, 상품명을 value 리스트로 담는 임시 맵
+        // 등록자별로 상품들을 묶는 작업이 필요해서,
         Map<String, List<String>> temp = new HashMap<>();
 
         // 모든 상품 순회
         for (Product p : productStore) {
             String key = p.getCreatePerson().getName(); // 이름 가져오기
+            // 키가 없으면 새 arraylist를 만들어서 그 리스트 반환
+            // 매번 if문 쓰는것보단, computeIfAbsent를 쓰면 간결함
             temp.computeIfAbsent(key, k -> new ArrayList<>())
                     .add(p.getProductName());
         }
-
         // temp에 있는 (등록자 -> 상품명) 리스트를 (등록자 -> 상품명) 문자열로 변환
         Map<String, String> result = new HashMap<>();
         for (Map.Entry<String, List<String>> e : temp.entrySet()) {

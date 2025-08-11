@@ -28,15 +28,11 @@ public class Employees {
     }
 
     // 사번 오름차순으로 정렬
-    private static Comparator<Employee> employeeNumComparatorAsc() {
-        return Comparator.comparing(Employee::getEmployeeNum);
-    }
-
     public List<Employee> sortedByEmployeeNumAsc() {
         // 원본 리스트 변경하지 않기 위해 stream 사용
         return store.stream()
-                .sorted(employeeNumComparatorAsc())
-                .collect(Collectors.toList()); // 정렬 후 리스트로 다시 만들어서 반환
+                .sorted(Comparator.comparing(Employee::getEmployeeNum))
+                .collect(Collectors.toList());  // 정렬 후 리스트로 다시 만들어서 반환
     }
 
     // 나이 오름차순으로 정렬 (오늘기준_ ( 나이 어린 -> 나이 많은)
@@ -64,8 +60,9 @@ public class Employees {
                         .reversed() // comparator는 기본이 오름차순이기 때문에, reverse 해주기
                         // 직급이 같다면 이름 오름차순으로 정렬해주기. KOREAN은 collator 기반 한글 정렬 comparator
                         .thenComparing(Employee::getName,
-                                Comparator.nullsLast(Collator.getInstance(Locale.KOREAN)))
-                        .collect(Collectors.toList());
+                                Comparator.nullsLast(Collator.getInstance(Locale.KOREAN))
+                        ))
+                .collect(Collectors.toList());
     }
 
     // 이름 오름차순 정렬

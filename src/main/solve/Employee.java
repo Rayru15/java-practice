@@ -6,17 +6,17 @@ import java.time.temporal.ChronoUnit;
 
 public class Employee {
     // ----- 프로퍼티 -----
-    private String employeeNum; // 사번
+    private String employeeNum; // 사번 (앞에 0붙을수 있으니 string으로?)
     private String name;  // 이름
     private LocalDateTime born; // 생년월일
     private LocalDateTime joinDate; // 입사일
     private String teamName; // 팀명
     private String rank;  // 직급
 
-    // 생성자
+    // 생성자 constructor
     public Employee(String employeeNum, String name, LocalDateTime born, LocalDateTime joinDate, String teamName, String rank) {
         /* 사번 유효성 검사 (숫자 5자리)
-         *  사번이 null, 5자리 숫자가 아닐 시 예외처리 */
+         *  사번이 null, 5자리 숫자가 아닐 시 예외처리 (정규식 사용. */
         if (employeeNum == null || employeeNum.length() != 5 || !employeeNum.matches("\\d{5}")) {
             throw new IllegalArgumentException("사번은 5자리 숫자로 이루어져야 함.");
         }
