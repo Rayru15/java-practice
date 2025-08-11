@@ -1,8 +1,11 @@
 package main.solve;
 
-import java.time.*;
-import java.util.Objects;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.MonthDay;
+import java.time.Period;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 public class Employee {
     // ----- 프로퍼티 -----
