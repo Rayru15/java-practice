@@ -13,6 +13,7 @@ public class Products {
     public Products() {
     }
 
+    // ----- 메서드 -----
 
     // 상품코드 오름차순
     public List<Product> sortedByProductCodeAsc() {
@@ -101,6 +102,10 @@ public class Products {
         return result;
     }
 
+
+
+
+
     // 상품 추가
     public boolean add(Product p) {
         Objects.requireNonNull(p, "상품은 null X");
@@ -119,5 +124,7 @@ public class Products {
         }
         return false;
     }
+
+
 }
 

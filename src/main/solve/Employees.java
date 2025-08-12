@@ -27,6 +27,8 @@ public class Employees {
     public Employees() {
     }
 
+    // ----- 메서드 -----
+
     // 사번 오름차순으로 정렬
     public List<Employee> sortedByEmployeeNumAsc() {
         // 원본 리스트 변경하지 않기 위해 stream 사용
@@ -110,7 +112,7 @@ public class Employees {
     public boolean removeByEmployeeNum(String employeeNum) {
         /* Iterator 반복자로 store 리스트 순회. hasNext(다음 요소 있는지 확인)*/
         for (Iterator<Employee> iterator = store.iterator(); iterator.hasNext(); ) {
-            Employee e = iterator.next();
+            Employee e = iterator.next(); // next : 다음 요소 반환하고 커서를 앞으로 이동
             if (Objects.equals(e.getEmployeeNum(), employeeNum)) {
                 iterator.remove();
                 return true;
@@ -118,6 +120,5 @@ public class Employees {
         }
         return false;
     }
-
 }
 

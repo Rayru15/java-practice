@@ -16,7 +16,7 @@ public class Main02 {
         Employee emp2 = new Employee("00002", "김철수", LocalDateTime.of(1995, 10, 20, 0, 0), LocalDateTime.of(2018, 7, 20, 0, 0), "영업팀", "사원");
         Employee emp3 = new Employee("00003", "박영희", LocalDateTime.of(1988, 1, 10, 0, 0), LocalDateTime.of(2010, 1, 5, 0, 0), "마케팅팀", "부장");
         Employee emp4 = new Employee("00004", "이영미", LocalDateTime.of(1992, 3, 25, 0, 0), LocalDateTime.of(2017, 11, 11, 0, 0), "개발팀", "대리");
-        Employee emp5 = new Employee("00005", "최지훈", LocalDateTime.of(1995, 10, 20, 0, 0), LocalDateTime.of(2020, 5, 1, 0, 0), "영업팀", "사원");
+        Employee emp5 = new Employee("00005", "최지훈", LocalDateTime.of(1999, 10, 20, 0, 0), LocalDateTime.of(2020, 5, 1, 0, 0), "영업팀", "사원");
 
         // Employee 클래스 메서드 시연
         System.out.println("[Employee] " + emp1.getName() + "의 오늘 기준 나이: " + emp1.getAge() + "세");

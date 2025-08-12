@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Product {
-
+    // ----- 프로퍼티 -----
     private String productCode; // 상품코드
     private String productName; // 상품명
     private int productPrice; // 판매가
@@ -15,7 +15,7 @@ public class Product {
 
 
     // 생성자
-    public Product(String productCode, String name, int price,
+    public Product(String productCode, String name, int productPrice,
                    LocalDateTime createDate, LocalDateTime updateDate,
                    Employee createPerson, Employee updatePerson) {
 
@@ -26,7 +26,10 @@ public class Product {
         this.productCode = productCode;
         /* 상품명, 등록일, 수정일, 등록자, 수정자가 null 이 아니면 object 그대로 반환, null이면 메세지 던짐*/
         this.productName = Objects.requireNonNull(name, "상품명은 null일 수 없음.");
-        setPrice(price); // 0 이상 검증
+        if (productPrice < 0) {
+            throw new IllegalArgumentException("판매가는 0 이상이어야 함.");
+        }
+        this.productPrice = productPrice;
         this.createDate = Objects.requireNonNull(createDate, "등록일은 null일 수 없음.");
         this.updateDate = Objects.requireNonNull(updateDate, "수정일은 null일 수 없음.");
         this.createPerson = Objects.requireNonNull(createPerson, "등록자는 null일 수 없음.");
@@ -66,12 +69,6 @@ public class Product {
     // 수정자
     public Employee getUpdatePerson() {
         return updatePerson;
-    }
-
-    // 가격 변경 (0 미만 안됨)
-    public void setPrice(int price) { // 리턴 값 필요없어서 void
-        if (price < 0) throw new IllegalArgumentException("판매가는 0 이상이어야 함.");
-        this.productPrice = price;
     }
 
 
