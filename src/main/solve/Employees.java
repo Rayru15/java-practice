@@ -33,6 +33,7 @@ public class Employees {
     public List<Employee> sortedByEmployeeNumAsc() {
         // 원본 리스트 변경하지 않기 위해 stream 사용
         return store.stream()
+                // comparator 는 객체를 비교하는 규칙을 정의하는 인터페이스
                 .sorted(Comparator.comparing(Employee::getEmployeeNum))
                 .collect(Collectors.toList());  // 정렬 후 리스트로 다시 만들어서 반환
     }
@@ -44,11 +45,10 @@ public class Employees {
 
     // 나이 오름차순으로 정렬 (특정날짜기준_ ( 나이 어린 -> 나이 많은)
     public List<Employee> sortedByAgeAsc(LocalDate targetDate) {
-        Objects.requireNonNull(targetDate, "특정일은 null이 안됩니다."); //null 예외처리
+        Objects.requireNonNull(targetDate, "특정일은 null이 안됩니다."); //null 예외처리 > notnull 처리 이유?
         // 원본 리스트 변경하지 않기 위해 stream 사용
         return store.stream()
                 // Employee e (stream에서 하나씩 꺼낸 Employee객체)를 받아서 getAge(targetDate) 반환,
-                // comparator 는 객체를 비교하는 규칙을 정의하는 인터페이스
                 .sorted(Comparator.comparingInt(e -> e.getAge(targetDate)))
                 .collect(Collectors.toList());
     }

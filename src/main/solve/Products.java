@@ -50,7 +50,7 @@ public class Products {
 
     // 전체 상품 판매가 반환
     public long totalPrice() {
-        long sum = 0L;
+        long sum = 0L; //stream 1
         // productStore 안에있는 모든 요소 순서대로 읽기
         for (Product p : productStore) {
             sum += p.getProductPrice();
