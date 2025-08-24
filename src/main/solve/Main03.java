@@ -8,6 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * 문제 3 / 조직의 계급도
+ * @author minju
+ * @since 2025-08-24
+ *
+ */
 public class Main03 {
 
     public static void main(String[] args) throws IOException {
